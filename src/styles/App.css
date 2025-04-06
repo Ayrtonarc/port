@@ -1,69 +1,94 @@
-/* src/styles/App.css */
-
+/* Global Styles */
 body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #ece9e6, #ffffff);
-    color: #333;
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: url('../assets/images/crash.jpg') no-repeat center center; /* Imagen de fondo */
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  color: #12b878fa;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Logo con animación */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin 20s linear infinite;
   }
-  
-  .App {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  /* Navbar */
-  nav {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-  }
-  
-  nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 2rem;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
-    color: #f4a261;
-  }
-  
-  /* Main Content */
-  main {
-    flex: 1;
-    padding: 2rem;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  /* Project Card */
-  .project-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0;
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .project-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
+}
+
+/* Encabezado y enlaces */
+.App-header {
+  background: #0c49c21c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+}
+.App-link { color: #61dafb; }
+
+/* Navbar */
+nav {
+  background: #50349e;
+  color: #fff;
+  padding: 1rem 2rem; /* Ajusta el padding horizontal */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra opcional */
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #f4a261; }
+
+/* Main Content */
+main { flex: 1; padding: 2rem; }
+
+/* Footer */
+footer {
+  background: #3162be;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+/* Tarjetas de Proyecto */
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: box-shadow 0.3s ease;
+}
+.project-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación del Logo */
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+

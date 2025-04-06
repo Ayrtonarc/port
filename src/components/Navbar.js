@@ -1,31 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom'; // Usando react-router-dom para navegación
-// import '../styles/App.css';
-
-// const Navbar = () => {
-//   return (
-//     <nav>
-//       <ul>
-//         <li>
-//           <Link to="/">Inicio</Link>
-//         </li>
-//         <li>
-//           <Link to="/about">Sobre Mí</Link>
-//         </li>
-//         <li>
-//           <Link to="/projects">Proyectos</Link>
-//         </li>
-//         <li>
-//           <Link to="/contact">Contacto</Link>
-//         </li>
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-// src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -33,8 +5,8 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container">
-        <Link className="navbar-brand" to="/">Mi Portafolio</Link>
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/"></Link>
         <button
           className="navbar-toggler"
           type="button"
