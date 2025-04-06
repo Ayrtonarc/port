@@ -67,28 +67,188 @@ main { flex: 1; padding: 2rem; }
 
 /* Footer */
 footer {
-  background: #3162be;
-  color: #fff;
+  background: #2e2e2e; /* Fondo gris oscuro */
+  color: #e0e0e0; /* Texto gris claro */
   text-align: center;
-  padding: 1rem;
   width: 100%; /* Asegura que ocupe todo el ancho */
+  padding: 1.5rem 0; /* Espaciado vertical */
+  border-top: 1px solid #444; /* Línea superior gris más claro */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil hacia arriba */
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+footer a {
+  color: #f4a261; /* Color de enlace */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff; /* Enlace blanco al pasar el cursor */
 }
 
 /* Tarjetas de Proyecto */
 .project-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
+  background: #2e2e2e; /* Fondo gris oscuro */
+  border: 1px solid #444; /* Borde gris más claro */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 1.5rem;
   margin: 1rem 0;
-  transition: box-shadow 0.3s ease;
+  color: #e0e0e0; /* Texto gris claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .project-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.project-card h5 {
+  color: #ffffff; /* Título en blanco */
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #b0b0b0; /* Texto de descripción en gris tenue */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-card a {
+  background: #444; /* Botón gris oscuro */
+  color: #e0e0e0; /* Texto del botón en gris claro */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.project-card a:hover {
+  background: #5a5a5a; /* Botón más claro al pasar el cursor */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Tarjetas de About */
+.about-card {
+  background: #2e2e2e; /* Fondo gris oscuro */
+  border: 1px solid #444; /* Borde gris más claro */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 1.5rem;
+  margin: 1rem 0;
+  color: #e0e0e0; /* Texto gris claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.about-card-title {
+  color: #ffffff; /* Título en blanco */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-card-text {
+  color: #b0b0b0; /* Texto de descripción en gris tenue */
+  font-size: 1rem;
+  line-height: 1.6; /* Espaciado entre líneas */
+}
+
+/* Tarjetas de Contacto */
+.contact-card {
+  background: #2e2e2e; /* Fondo gris oscuro */
+  border: 1px solid #444; /* Borde gris más claro */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 1.5rem;
+  color: #e0e0e0; /* Texto gris claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.contact-card-title {
+  color: #ffffff; /* Título en blanco */
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-card-text {
+  color: #b0b0b0; /* Texto de descripción en gris tenue */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card a.btn {
+  background: #444; /* Botón gris oscuro */
+  color: #e0e0e0; /* Texto del botón en gris claro */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact-card a.btn:hover {
+  background: #5a5a5a; /* Botón más claro al pasar el cursor */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Tarjetas de Habilidades */
+.skill-card {
+  background: #2e2e2e; /* Fondo gris oscuro */
+  border: 1px solid #444; /* Borde gris más claro */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 1.5rem;
+  color: #e0e0e0; /* Texto gris claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.skill-card-title {
+  color: #ffffff; /* Título en blanco */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-card ul {
+  color: #b0b0b0; /* Texto de la lista en gris tenue */
+  font-size: 1rem;
+  line-height: 1.6; /* Espaciado entre líneas */
+}
+
+.skill-card ul li {
+  margin-bottom: 0.5rem; /* Espaciado entre elementos de la lista */
 }
 
 /* Animación del Logo */
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.dark-filter {
+  filter: brightness(0.7) contrast(1) saturate(0.6); /* Colores más tenues */
+  transition: filter 0.3s ease-in-out;
+}
+
+.dark-filter:hover {
+  filter: brightness(0.8) contrast(1.1) saturate(0.8); /* Suaviza el efecto al pasar el cursor */
 }
 

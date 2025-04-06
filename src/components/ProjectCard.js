@@ -1,13 +1,21 @@
 // src/components/ProjectCard.js
 import React from 'react';
 
-const ProjectCard = ({ title, description }) => {
+const ProjectCard = ({ title, description, url }) => {
   return (
-    <div className="card mb-3 shadow-sm">
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
-      </div>
+    <div className="project-card"> {/* Usamos la clase definida en App.css */}
+      <h5>{title}</h5> {/* Título estilizado con .project-card h5 */}
+      <p>{description}</p> {/* Descripción estilizada con .project-card p */}
+      {url && (
+        <a 
+          href={url} 
+          className="btn" /* Botón estilizado con .project-card a */
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Ver Proyecto
+        </a>
+      )}
     </div>
   );
 };
