@@ -1,11 +1,51 @@
 /* Global Styles */
+/* Efecto digital estilo 8 bits */
 body {
+  position: relative;
   margin: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente estilo retro */
   background: url('../assets/images/crash.jpg') no-repeat center center; /* Imagen de fondo */
   background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  image-rendering: pixelated; /* Convierte la imagen en estilo pixelado */
   color: #12b878fa;
+  overflow: hidden; /* Oculta cualquier desbordamiento causado por el efecto */
 }
+
+/* Comentamos el efecto glitch para mantenerlo simple */
+/*
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; 
+  opacity: 0.6; 
+  z-index: -1; 
+  animation: glitch-8bit 2s infinite;
+}
+
+body::after {
+  animation: glitch-8bit 2s infinite reverse; 
+}
+
+@keyframes glitch-8bit {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-8px, -8px); 
+  }
+  50% {
+    transform: translate(8px, 8px);
+  }
+  75% {
+    transform: translate(-4px, 4px);
+  }
+}
+*/
 
 .App {
   display: flex;
@@ -160,6 +200,18 @@ footer a:hover {
   color: #b0b0b0; /* Texto de descripción en gris tenue */
   font-size: 1rem;
   line-height: 1.6; /* Espaciado entre líneas */
+}
+
+/* Habilidades Blandas */
+.about-card ul {
+  color: #b0b0b0; /* Texto gris tenue */
+  font-size: 1rem; /* Tamaño de fuente consistente */
+  line-height: 1.6; /* Espaciado entre líneas */
+}
+
+.about-card ul li {
+  margin-bottom: 0.5rem; /* Espaciado entre elementos de la lista */
+  font-size: 1rem; /* Asegura que el tamaño de letra sea consistente */
 }
 
 /* Tarjetas de Contacto */
