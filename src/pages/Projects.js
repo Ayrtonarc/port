@@ -24,8 +24,8 @@ const Projects = () => {
     },
     { 
       id: 4, 
-      title: 'Sistema de Gestión de Inventarios', 
-      description: 'Aplicación web para gestionar inventarios utilizando Node.js, Express y PostgreSQL.', 
+      title: 'Backend para una Red Social de Video', 
+      description: 'Aplicación backend para una red social de video, desarrollada con Node.js, Express y PostgreSQL.', 
       url: 'https://github.com/tuusuario/proyecto-inventarios' 
     },
     { 

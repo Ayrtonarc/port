@@ -303,4 +303,18 @@ footer a:hover {
 .dark-filter:hover {
   filter: brightness(0.8) contrast(1.1) saturate(0.8); /* Suaviza el efecto al pasar el cursor */
 }
+  
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.qr-container canvas {
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+}
 

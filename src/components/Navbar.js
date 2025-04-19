@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/"></Link>
+        <Link className="navbar-brand" to="/">Mi Portafolio</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -32,6 +30,9 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contacto</Link>
             </li>
+            {/* <li className="nav-item">
+              <Link className="nav-link" to="/donate">Crypto</Link> {/* Nueva sección */}
+            {/* </li> */}
           </ul>
         </div>
       </div>
