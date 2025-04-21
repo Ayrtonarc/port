@@ -7,7 +7,7 @@ const Contact = () => {
       title: 'Correo Electrónico',
       description: 'Envíame un correo para consultas o colaboraciones.',
       link: 'mailto:correo@ejemplo.com',
-      linkText: 'correo@ejemplo.com',
+      linkText: 'ayrtonarc@gmail.com',
       icon: 'bi-envelope', // Ícono de correo
     },
     {
@@ -26,14 +26,14 @@ const Contact = () => {
       linkText: 'LinkedIn',
       icon: 'bi-linkedin', // Ícono de LinkedIn
     },
-    {
-      id: 4,
-      title: 'Instagram',
-      description: 'Sígueme en Instagram para contenido personal y profesional.',
-      link: 'https://www.instagram.com/ayrton.super/',
-      linkText: 'Instagram',
-      icon: 'bi-instagram', // Ícono de Instagram
-    },
+    // {
+    //   id: 4,
+    //   title: 'Instagram',
+    //   description: 'Sígueme en Instagram para contenido personal y profesional.',
+    //   link: 'https://www.instagram.com/ayrton.super/',
+    //   linkText: 'Instagram',
+    //   icon: 'bi-instagram', // Ícono de Instagram
+    // },
     {
       id: 5,
       title: 'Medium',

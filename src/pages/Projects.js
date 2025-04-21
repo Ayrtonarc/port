@@ -22,17 +22,17 @@ const Projects = () => {
       description: 'Modelo de clasificación de señales de tránsito utilizando redes neuronales convolucionales (CNN).', 
       url: 'https://colab.research.google.com/drive/1z3fXWqwhhKVYUEGnFbrywEIokPxOucFl?usp=sharing' 
     },
-    { 
-      id: 4, 
-      title: 'Backend para una Red Social de Video', 
-      description: 'Aplicación backend para una red social de video, desarrollada con Node.js, Express y PostgreSQL.', 
-      url: 'https://github.com/tuusuario/proyecto-inventarios' 
-    },
+    // { 
+    //   id: 4, 
+    //   title: 'Backend para una Red Social de Video', 
+    //   description: 'Aplicación backend para una red social de video, desarrollada con Node.js, Express y PostgreSQL.', 
+    //   url: 'https://github.com/tuusuario/proyecto-inventarios' 
+    // },
     { 
       id: 5, 
-      title: 'Clasificación de Imágenes Médicas', 
+      title: 'Clasificación de Imágenes Médicas (En progreso)', 
       description: 'Proyecto de IA para clasificar imágenes médicas (MRI) y detectar anomalías.', 
-      url: 'https://colab.research.google.com/drive/1Rf2tYcdXEOAkMZA-PZ8eL40jFOctSfhv?usp=sharing#scrollTo=K2q7uDw5tOTA' 
+      url: '' 
     },
   ];
 
