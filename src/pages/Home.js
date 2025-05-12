@@ -5,6 +5,19 @@ const Home = () => {
   const skills = [
     {
       id: 1,
+      title: 'Inteligencia Artificial',
+      items: [
+        { text: 'Deep Learning con PyTorch', icon: 'bi-cpu' },
+        { text: 'Procesamiento de imágenes médicas (MRI)', icon: 'bi-image' },
+        { text: 'Diseño de datasets personalizados', icon: 'bi-collection' },
+        { text: 'Preprocesamiento de datos clínicos (CDR)', icon: 'bi-file-earmark-medical' },
+        { text: 'Evaluación con métricas clínicas', icon: 'bi-bar-chart' },
+        { text: 'Automatización de logs con pandas', icon: 'bi-file-earmark-spreadsheet' },
+        { text: 'Entrenamiento en GPU con CUDA', icon: 'bi-gpu-card' },
+      ],
+    },
+    {
+      id: 2,
       title: 'Desarrollo Web',
       items: [
         { text: 'Node.js', icon: 'bi-node-plus' },
@@ -15,19 +28,6 @@ const Home = () => {
         { text: 'PostgreSQL', icon: 'bi-server' },
         { text: 'Git y GitHub', icon: 'bi-git' },
         { text: 'Metodologías Ágiles (Scrum)', icon: 'bi-people' },
-      ],
-    },
-    {
-      id: 2,
-      title: 'Inteligencia Artificial',
-      items: [
-        { text: 'Deep Learning con PyTorch', icon: 'bi-cpu' },
-        { text: 'Procesamiento de imágenes médicas (MRI)', icon: 'bi-image' },
-        { text: 'Diseño de datasets personalizados', icon: 'bi-collection' },
-        { text: 'Preprocesamiento de datos clínicos (CDR)', icon: 'bi-file-earmark-medical' },
-        { text: 'Evaluación con métricas clínicas', icon: 'bi-bar-chart' },
-        { text: 'Automatización de logs con pandas', icon: 'bi-file-earmark-spreadsheet' },
-        { text: 'Entrenamiento en GPU con CUDA', icon: 'bi-gpu-card' },
       ],
     },
   ];
