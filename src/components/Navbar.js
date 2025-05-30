@@ -30,6 +30,9 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contacto</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/services">Servicios</Link>
+            </li>
             {/* <li className="nav-item">
               <Link className="nav-link" to="/donate">Crypto</Link> {/* Nueva sección */}
             {/* </li> */}

@@ -7,6 +7,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
+import Services from './pages/Services';
 import './styles/App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/donate" element={<Donate />} />
+            <Route path="/services" element={<Services />} />
             <Route path="*" element={<Navigate to="/" />} /> {/* Redirige rutas no encontradas */}
           </Routes>
           <Footer />
