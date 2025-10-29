@@ -9,7 +9,7 @@ body {
   position: relative;
   margin: 0;
   font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente estilo retro */
-  background: url('../assets/images/MHC_V2_002.jpg') no-repeat center center; /* Imagen de fondo */
+  background: url('../assets/images/kristaps-ungurs-XD5oKCerKCQ-unsplash.jpg') no-repeat center center; /* Imagen de fondo */
   background-size: cover; /* Asegura que la imagen cubra todo el fondo */
   image-rendering: pixelated; /* Convierte la imagen en estilo pixelado */
   color: #12b878fa;
