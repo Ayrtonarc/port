@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/port/static/css/main.2abe0712.css",
-    "main.js": "/port/static/js/main.00cfb3a5.js",
+    "main.css": "/port/static/css/main.99668189.css",
+    "main.js": "/port/static/js/main.f2914d9b.js",
     "static/js/453.211be4f6.chunk.js": "/port/static/js/453.211be4f6.chunk.js",
-    "static/media/MHC_V2_002.jpg": "/port/static/media/MHC_V2_002.5421ff4f299502da35fa.jpg",
+    "static/media/kristaps-ungurs-XD5oKCerKCQ-unsplash.jpg": "/port/static/media/kristaps-ungurs-XD5oKCerKCQ-unsplash.96aae1e902ab54ced133.jpg",
     "static/media/foto.jpeg": "/port/static/media/foto.640be42c4b490f959987.jpeg",
     "index.html": "/port/index.html",
-    "main.2abe0712.css.map": "/port/static/css/main.2abe0712.css.map",
-    "main.00cfb3a5.js.map": "/port/static/js/main.00cfb3a5.js.map",
+    "main.99668189.css.map": "/port/static/css/main.99668189.css.map",
+    "main.f2914d9b.js.map": "/port/static/js/main.f2914d9b.js.map",
     "453.211be4f6.chunk.js.map": "/port/static/js/453.211be4f6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2abe0712.css",
-    "static/js/main.00cfb3a5.js"
+    "static/css/main.99668189.css",
+    "static/js/main.f2914d9b.js"
   ]
 }
