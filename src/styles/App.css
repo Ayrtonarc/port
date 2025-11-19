@@ -1,4 +1,18 @@
 /* Global Styles */
+/* Design tokens + floating text effect */
+:root {
+  /* Apple-inspired minimal tokens */
+  /* site background: subtle vertical gradient inspired by the image */
+  --bg: linear-gradient(180deg, #efeded 0%, #f7f7f7 100%);
+  --surface: #ffffff; /* surfaces (cards) remain white */
+  --card: #ffffff;
+  --text: #000000; /* pure black text */
+  --muted: rgba(0,0,0,0.55); /* use black opacity for muted */
+  --glass: rgba(255,255,255,0.6);
+  --radius: 8px;
+  --container-max: 1100px;
+}
+
 /* Efecto digital estilo 8 bits */
 html, body {
   height: 100%;
@@ -8,56 +22,92 @@ html, body {
 body {
   position: relative;
   margin: 0;
-  font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente estilo retro */
-  background: url('../assets/images/kristaps-ungurs-XD5oKCerKCQ-unsplash.jpg') no-repeat center center; /* Imagen de fondo */
-  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-  image-rendering: pixelated; /* Convierte la imagen en estilo pixelado */
-  color: #12b878fa;
-  overflow: auto; /* Oculta cualquier desbordamiento causado por el efecto */
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Comentamos el efecto glitch para mantenerlo simple */
-/*
-body::before,
-body::after {
-  content: '';
-  position: absolute;
+/* Floating text animation applied to all textual elements as requested */
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Apply floating animation only to major headings to keep motion subtle and consistent */
+h1, h2, h3, h4, h5, h6, .hero-title, .section-title { animation: floatY 6.5s ease-in-out infinite; }
+
+/* Inline elements should allow transform without breaking flow */
+a, button, .btn, span, strong, em { display: inline-block; }
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  h1,h2,h3,h4,h5,h6, .hero-title, .section-title { animation: none !important; transition: none !important; }
+}
+
+/* Button utilities (minimal) */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px; /* pill */
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.06s ease;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: transparent;
+  color: var(--text);
+}
+
+.btn-primary {
+  background: #000000; /* black button */
+  color: #ffffff; /* white text */
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: none;
+}
+
+.btn-primary:hover{ opacity: 0.98; transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Site navigation (minimal) */
+.site-nav {
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit; 
-  opacity: 0.6; 
-  z-index: -1; 
-  animation: glitch-8bit 2s infinite;
+  z-index: 60;
+  background: transparent;
+  border-bottom: 1px solid rgba(16,24,40,0.03);
+}
+.site-nav .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:0.6rem 0; }
+.site-nav__brand{ color: var(--text); font-weight:600; font-size:1rem; text-decoration:none; }
+.site-nav__links{ display:flex; gap:0.75rem; align-items:center; }
+.site-nav__link{ color: var(--muted); text-decoration:none; padding:0.35rem 0.6rem; border-radius:6px; transition: color .12s ease, background .12s ease; }
+.site-nav__link:hover{ color: var(--text); background: rgba(0,0,0,0.02); }
+
+/* Site footer (minimal) */
+.site-footer{ background: transparent; padding:2rem 0; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.03); }
+.site-footer__text{ margin:0; font-weight:500; color: var(--muted); }
+.site-footer__meta{ margin:0; color: rgba(0,0,0,0.45); font-size:0.9rem; }
+
+/* Card base (minimal, flat) */
+.card, .project-card, .about-card, .contact-card, .skill-card {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: none;
 }
 
-body::after {
-  animation: glitch-8bit 2s infinite reverse; 
-}
+/* Utility: muted text */
+.muted { color: var(--muted); }
 
-@keyframes glitch-8bit {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-8px, -8px); 
-  }
-  50% {
-    transform: translate(8px, 8px);
-  }
-  75% {
-    transform: translate(-4px, 4px);
-  }
-}
-*/
-
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  text-align: center;
-}
 
 /* Logo con animación */
 .App-logo {
@@ -72,24 +122,24 @@ body::after {
 
 /* Encabezado y enlaces */
 .App-header {
-  background: #0c49c21c;
+  background: transparent;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #fff;
+  color: var(--text);
 }
-.App-link { color: #61dafb; }
+.App-link { color: var(--text); }
 
 /* Navbar */
 nav {
-  background: #50349e;
-  color: #fff;
-  padding: 1rem 2rem; /* Ajusta el padding horizontal */
-  width: 100%; /* Asegura que ocupe todo el ancho */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra opcional */
+  background: transparent;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  box-shadow: none;
 }
 nav ul {
   display: flex;
@@ -97,121 +147,103 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 nav a {
-  color: #fff;
+  color: var(--muted);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.12s ease;
 }
-nav a:hover { color: #f4a261; }
+nav a:hover { color: var(--text); }
 
 /* Main Content */
 main { flex: 1; padding: 2rem; }
 
 /* Footer */
 footer {
-  background: #2e2e2e; /* Fondo gris oscuro */
-  color: #e0e0e0; /* Texto gris claro */
+  background: transparent;
+  color: var(--muted);
   text-align: center;
-  width: 100%; /* Asegura que ocupe todo el ancho */
-  padding: 1.5rem 0; /* Espaciado vertical */
-  border-top: 1px solid #444; /* Línea superior gris más claro */
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil hacia arriba */
-  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
-  transition: background 0.3s ease, color 0.3s ease;
+  width: 100%;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(0,0,0,0.03);
+  font-size: 0.9rem;
 }
 
 footer a {
-  color: #f4a261; /* Color de enlace */
+  color: var(--muted);
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-weight: 600;
 }
 
-footer a:hover {
-  color: #ffffff; /* Enlace blanco al pasar el cursor */
-}
+footer a:hover { color: var(--text); }
 
-/* Tarjetas de Proyecto */
+/* Tarjetas de Proyecto (minimal) */
 .project-card {
-  background: #2e2e2e; /* Fondo gris oscuro */
-  border: 1px solid #444; /* Borde gris más claro */
-  border-radius: 12px; /* Bordes redondeados */
-  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(16,24,40,0.04);
+  border-radius: var(--radius);
+  padding: 1.25rem;
   margin: 1rem 0;
-  color: #e0e0e0; /* Texto gris claro */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--text);
+  transition: background 0.12s ease, border-color 0.12s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px); /* Efecto de elevación */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  background: var(--surface);
 }
 
 .project-card h5 {
-  color: #ffffff; /* Título en blanco */
-  font-size: 1.25rem;
+  color: var(--text);
+  font-size: 1.125rem;
   margin-bottom: 0.5rem;
 }
 
 .project-card p {
-  color: #b0b0b0; /* Texto de descripción en gris tenue */
+  color: rgba(16,24,40,0.7);
   font-size: 1rem;
   margin-bottom: 1rem;
 }
 
 .project-card a {
-  background: #444; /* Botón gris oscuro */
-  color: #e0e0e0; /* Texto del botón en gris claro */
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  display:inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease, color 0.3s ease;
+  font-weight: 700;
+  border: none;
+  background: #000000;
+  color: #fff;
 }
 
-.project-card a:hover {
-  background: #5a5a5a; /* Botón más claro al pasar el cursor */
-  color: #ffffff; /* Texto blanco */
-}
-
-/* Tarjetas de About */
+/* Tarjetas de About (minimal) */
 .about-card {
-  background: #2e2e2e; /* Fondo gris oscuro */
-  border: 1px solid #444; /* Borde gris más claro */
-  border-radius: 12px; /* Bordes redondeados */
-  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(16,24,40,0.04);
+  border-radius: var(--radius);
+  padding: 1.25rem;
   margin: 1rem 0;
-  color: #e0e0e0; /* Texto gris claro */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-card:hover {
-  transform: translateY(-5px); /* Efecto de elevación */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  color: var(--text);
 }
 
 .about-card-title {
-  color: #ffffff; /* Título en blanco */
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  color: var(--text);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .about-card-text {
-  color: #b0b0b0; /* Texto de descripción en gris tenue */
+  color: rgba(16,24,40,0.75);
   font-size: 1rem;
-  line-height: 1.6; /* Espaciado entre líneas */
+  line-height: 1.6;
 }
 
 /* Habilidades Blandas */
 .about-card ul {
-  color: #b0b0b0; /* Texto gris tenue */
-  font-size: 1rem; /* Tamaño de fuente consistente */
-  line-height: 1.6; /* Espaciado entre líneas */
+  color: var(--muted); /* Texto muted */
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .about-card ul li {
@@ -219,80 +251,58 @@ footer a:hover {
   font-size: 1rem; /* Asegura que el tamaño de letra sea consistente */
 }
 
-/* Tarjetas de Contacto */
+/* Tarjetas de Contacto (minimal) */
 .contact-card {
-  background: #2e2e2e; /* Fondo gris oscuro */
-  border: 1px solid #444; /* Borde gris más claro */
-  border-radius: 12px; /* Bordes redondeados */
-  padding: 1.5rem;
-  color: #e0e0e0; /* Texto gris claro */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-5px); /* Efecto de elevación */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  background: var(--card);
+  border: 1px solid rgba(16,24,40,0.04);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  color: var(--text);
 }
 
 .contact-card-title {
-  color: #ffffff; /* Título en blanco */
-  font-size: 1.25rem;
+  color: var(--text);
+  font-size: 1.125rem;
   margin-bottom: 0.5rem;
 }
 
 .contact-card-text {
-  color: #b0b0b0; /* Texto de descripción en gris tenue */
+  color: rgba(16,24,40,0.75);
   font-size: 1rem;
   margin-bottom: 1rem;
 }
 
-.contact-card a.btn {
-  background: #444; /* Botón gris oscuro */
-  color: #e0e0e0; /* Texto del botón en gris claro */
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease, color 0.3s ease;
+.contact-card a.btn{
+  display:inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: #000000;
+  color: #fff;
+  text-decoration:none;
 }
 
-.contact-card a.btn:hover {
-  background: #5a5a5a; /* Botón más claro al pasar el cursor */
-  color: #ffffff; /* Texto blanco */
-}
-
-/* Tarjetas de Habilidades */
+/* Tarjetas de Habilidades (minimal) */
 .skill-card {
-  background: #2e2e2e; /* Fondo gris oscuro */
-  border: 1px solid #444; /* Borde gris más claro */
-  border-radius: 12px; /* Bordes redondeados */
-  padding: 1.5rem;
-  color: #e0e0e0; /* Texto gris claro */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px); /* Efecto de elevación */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  background: var(--card);
+  border: 1px solid rgba(16,24,40,0.04);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  color: var(--text);
 }
 
 .skill-card-title {
-  color: #ffffff; /* Título en blanco */
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  color: var(--text);
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
 }
 
 .skill-card ul {
-  color: #b0b0b0; /* Texto de la lista en gris tenue */
+  color: rgba(16,24,40,0.75);
   font-size: 1rem;
-  line-height: 1.6; /* Espaciado entre líneas */
+  line-height: 1.6;
 }
 
-.skill-card ul li {
-  margin-bottom: 0.5rem; /* Espaciado entre elementos de la lista */
-}
+.skill-card ul li { margin-bottom: 0.5rem; }
 
 /* Animación del Logo */
 @keyframes App-logo-spin {

@@ -3,43 +3,18 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">Mi Portafolio</Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">Inicio</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">Sobre Mí</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/projects">Proyectos</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">Contacto</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/services">Servicios</Link>
-            </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="/donate">Crypto</Link> {/* Nueva sección */}
-            {/* </li> */}
-          </ul>
-        </div>
+    <header className="site-nav">
+      <div className="container nav-inner">
+        <Link to="/" className="site-nav__brand"></Link>
+        <nav className="site-nav__links" aria-label="Main navigation">
+          <Link to="/" className="site-nav__link">Inicio</Link>
+          <Link to="/about" className="site-nav__link">Sobre mí</Link>
+          <Link to="/projects" className="site-nav__link">Proyectos</Link>
+          <Link to="/services" className="site-nav__link">Servicios</Link>
+          <Link to="/contact" className="site-nav__link">Contacto</Link>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 };
 
