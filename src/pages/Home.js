@@ -33,38 +33,66 @@ const Home = () => {
   ];
 
   return (
-    <div className="container mt-4">
-      <div className="text-center">
-        <h1 className="my-4 glitch" data-text="Bienvenido a mi Portafolio">
-          Bienvenido a mi Portafolio
-        </h1>
-        <p className="lead">
-          Soy un desarrollador apasionado por la tecnología y la innovación.
-        </p>
-      </div>
-      <div className="mt-5">
-        <h2 className="text-center">Habilidades y Tecnologías</h2>
-        <div className="row">
-          {skills.map((skill) => (
-            <div key={skill.id} className="col-md-6 mb-4">
-              <div className="skill-card">
-                <div className="skill-card-body">
-                  <h3 className="skill-card-title text-center">{skill.title}</h3>
-                  <ul className="list-unstyled text-center mt-3">
-                    {skill.items.map((item, index) => (
-                      <li key={index} className="mb-2">
-                        <i className={`bi ${item.icon} me-2`}></i> {/* Ícono */}
-                        {item.text}
-                      </li>
-                    ))}
-                  </ul>
+    <>
+      <main>
+        {/* Visual hero removed per request; simplified landing */}
+        {/* Case-study removed per request */}
+
+        {/* Sección 'Sobre mí' eliminada por solicitud */}
+
+        <section id="habilidades" className="section container">
+          <h2 className="section-title">Habilidades</h2>
+          <div className="row">
+            {skills.map((skill) => (
+              <div key={skill.id} className="col-md-6 mb-4">
+                <div className="skill-card">
+                  <div className="skill-card-body">
+                    <h4 className="skill-card-title">{skill.title}</h4>
+                    <ul className="list-unstyled mt-2">
+                      {skill.items.map((item, i) => (
+                        <li key={i} className="mb-2">
+                          {item.icon && <i className={`bi ${item.icon} me-2`} aria-hidden="true"></i>}
+                          {item.text}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="services" className="section container">
+          <h2 className="section-title text-center">Servicios</h2>
+          <div className="services-grid">
+            {/*
+            <div className="service-card about-card">
+              <div className="about-card-body">
+                <i className="bi bi-instagram" style={{fontSize: '1.75rem'}}></i>
+                <h4 className="about-card-title mt-2">Contenido para Redes Sociales (IA)</h4>
+                <p className="about-card-text">Generación de imágenes, textos y videos para redes sociales utilizando inteligencia artificial. Ideal para marketing digital y presencia online.</p>
+                <a href="#/services" className="btn btn-hero btn-ghost">Ver servicio</a>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
+            */}
+
+            <div className="service-card about-card">
+              <div className="about-card-body">
+                <i className="bi bi-wrench" style={{fontSize: '1.75rem'}} aria-hidden="true"></i>
+                <h4 className="about-card-title mt-2">Mantenimiento de equipos de cómputo</h4>
+                <p className="about-card-text">Diagnóstico y reparación de hardware, limpieza y mantenimiento preventivo, reemplazo de componentes (HDD/SSD, RAM, fuentes), instalación y actualización de sistemas operativos y drivers, optimización de rendimiento, respaldo y recuperación de datos, y soporte remoto o presencial según necesidad.</p>
+                <a href="#/services" className="btn btn-hero btn-ghost">Ver servicio</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Proyectos section removed per request */}
+
+        {/* Contact preview removed per request */}
+      </main>
+    </>
   );
 };
 

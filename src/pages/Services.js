@@ -8,9 +8,9 @@ const services = [
     icon: 'bi-instagram',
   },
   {
-    title: 'Marketplace con Tookans.com',
-    description: 'Te ayudo a crear tu tienda o marketplace en Tookans.com para que puedas vender productos o servicios fácilmente en línea.',
-    icon: 'bi-bag',
+    title: 'Mantenimiento de equipos de cómputo',
+    description: 'Diagnóstico y reparación de hardware, limpieza y mantenimiento preventivo, reemplazo de componentes (HDD/SSD, RAM, fuentes), instalación y actualización de sistemas operativos y drivers, optimización de rendimiento, respaldo y recuperación de datos, y soporte remoto o presencial según necesidad.',
+    icon: 'bi-wrench',
   },
 ];
 
@@ -24,8 +24,8 @@ const Services = () => (
       {services.map((service, idx) => (
         <div className="col-md-6 mb-4" key={idx}>
           <div className="about-card h-100">
-            <div className="about-card-body text-center">
-              <i className={`bi ${service.icon} mb-3`} style={{ fontSize: '2.5rem', color: '#12b878' }}></i>
+              <div className="about-card-body text-center">
+              <i className={`bi ${service.icon} mb-3`} style={{ fontSize: '2.5rem' }}></i>
               <h3 className="about-card-title">{service.title}</h3>
               <p className="about-card-text">{service.description}</p>
             </div>

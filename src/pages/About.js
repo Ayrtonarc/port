@@ -1,69 +1,108 @@
 // src/pages/About.js
 import React from 'react';
-import myPhoto from '../assets/images/foto.jpeg'; // Asegúrate de que la imagen esté en esta ruta
+import myPhoto from '../assets/images/foto.jpeg'; // keep or replace with your preferred image
 
 const About = () => {
+  const technical = [
+    'Python, PyTorch',
+    'Node.js, Express',
+    'GraphQL, Apollo',
+    'PostgreSQL, Sequelize',
+    'Docker, Linux',
+  ];
+
   const softSkills = [
-    { id: 1, text: 'Resolución de problemas', icon: 'bi-lightbulb' },
-    { id: 2, text: 'Trabajo en equipo', icon: 'bi-people' },
-    { id: 3, text: 'Comunicación efectiva', icon: 'bi-chat-dots' },
-    { id: 4, text: 'Adaptabilidad', icon: 'bi-arrow-repeat' },
-    { id: 5, text: 'Pensamiento crítico', icon: 'bi-search' },
-    { id: 6, text: 'Gestión del tiempo', icon: 'bi-clock' },
-    { id: 7, text: 'Liderazgo', icon: 'bi-award' },
+    'Resolución de problemas',
+    'Trabajo en equipo',
+    'Comunicación efectiva',
+    'Adaptabilidad',
   ];
 
   return (
-    <div className="container mt-4">
-      <h1 className="mb-4 text-center">Sobre Mí</h1>
+    <main className="container mt-4">
+      <header className="mb-4">
+        <h1 className="section-title text-center">Sobre mí</h1>
+      </header>
 
-      {/* Introducción */}
-      <div className="about-card mb-4">
-        <div className="about-card-body text-center">
-          <img 
-            src={myPhoto} 
-            alt="Mi foto" 
-            className="img-fluid rounded-circle mb-4 shadow-lg" 
-            style={{ width: '150px', height: '150px', objectFit: 'cover' }} 
+      <section className="about-grid mb-5" style={{display: 'grid', gridTemplateColumns: '200px 1fr', gap: '1.25rem', alignItems: 'start'}}>
+        <div className="about-media text-center">
+          <img
+            src={myPhoto}
+            alt="Foto"
+            style={{width: 160, height: 160, objectFit: 'cover', borderRadius: '999px'}}
           />
-          <h2 className="about-card-title">Introducción</h2>
-          <p className="about-card-text">
-            ¡Hola! Soy Ayrton, Ingeniero en Tecnologías de la Información y Comunicaciones (TICS).
-          </p>
-          <p className="about-card-text">
-            Actualmente curso un posgrado en Ciencias de la Computación, donde trabajo con redes neuronales para detectar el Alzheimer, combinando mi pasión por la tecnología con el objetivo de generar un impacto positivo.
-          </p>
         </div>
-      </div>
 
-      {/* Experiencia */}
-      <div className="about-card mb-4">
-        <div className="about-card-body">
-          <h2 className="about-card-title">Experiencia</h2>
-          <p className="about-card-text">
-            Comencé mi carrera trabajando en soporte técnico, lo que me permitió desarrollar sólidas habilidades en la resolución de problemas y en la atención a clientes.
+        <div className="about-body">
+          <p className="lead" style={{marginBottom: '0.75rem'}}>
+            Soy Ayrton — ingeniero en TICS con foco en inteligencia artificial y sistemas web. Diseño modelos y servicios preparados para producción con cuidado por la calidad y la trazabilidad.
           </p>
-          <p className="about-card-text">
-            Posteriormente, me desempeñé como programador en Plaeto, especializándome en el desarrollo de soluciones back-end y la optimización de sistemas.
-          </p>
-        </div>
-      </div>
 
-      {/* Habilidades Blandas */}
-      <div className="about-card">
-        <div className="about-card-body">
-          <h2 className="about-card-title">Habilidades Blandas</h2>
-          <ul className="list-unstyled">
-            {softSkills.map((skill) => (
-              <li key={skill.id} className="mb-2">
-                <i className={`bi ${skill.icon} me-2`}></i> {/* Ícono */}
-                {skill.text}
-              </li>
-            ))}
-          </ul>
+          <div style={{display: 'flex', gap: '1rem', marginTop: '0.75rem', marginBottom: '1rem'}}>
+            <div>
+              <strong>+3</strong>
+              <div className="muted">Años experiencia</div>
+            </div>
+            <div>
+              <strong>10+</strong>
+              <div className="muted">Proyectos</div>
+            </div>
+            <div>
+              <strong>Producción</strong>
+              <div className="muted">Deploys y mantenimiento</div>
+            </div>
+          </div>
+
+          <p style={{marginTop: 0}}>Mi trabajo mezcla investigación aplicada con buenas prácticas de ingeniería: reproducibilidad, pipelines y observabilidad.</p>
+
+          <div style={{marginTop: '1rem', display: 'flex', gap: '0.6rem'}}>
+            <a className="btn btn-primary" href="#/contact">Contactar</a>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="mb-4">
+        <h2 className="section-subtitle">Habilidades técnicas</h2>
+        <ul className="list-inline" style={{paddingLeft: 0, marginTop: '.5rem'}}>
+          {technical.map((t, i) => (
+            <li key={i} className="list-inline-item" style={{marginRight: '0.75rem', color: 'var(--muted)'}}>{t}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mb-4">
+        <h2 className="section-subtitle">Habilidades blandas</h2>
+        <ul style={{marginTop: '.5rem'}}>
+          {softSkills.map((s, i) => <li key={i}>{s}</li>)}
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="section-subtitle">Experiencia</h2>
+        <ul className="timeline" style={{listStyle: 'none', paddingLeft: 0, marginTop: '.75rem', borderLeft: '2px solid rgba(0,0,0,0.06)'}}>
+          <li style={{position: 'relative', padding: '0.6rem 0 0.6rem 1rem'}}>
+            <span style={{position: 'absolute', left: -10, top: '0.9rem', width: 12, height: 12, background: 'var(--text)', borderRadius: '50%'}} aria-hidden="true" />
+            <div style={{fontWeight: 700}}>2023 — 2025</div>
+            <div><strong>Posgrado</strong> — investigación en detección de Alzheimer</div>
+            <div className="muted">Desarrollo de redes neuronales y pipelines de validación para proyectos clínicos.</div>
+          </li>
+
+          <li style={{position: 'relative', padding: '0.6rem 0 0.6rem 1rem'}}>
+            <span style={{position: 'absolute', left: -10, top: '0.9rem', width: 12, height: 12, background: 'var(--text)', borderRadius: '50%'}} aria-hidden="true" />
+            <div style={{fontWeight: 700}}>2022</div>
+            <div><strong>Plaeto</strong> — desarrollador back-end</div>
+            <div className="muted">Optimización de sistemas, despliegues y monitorización.</div>
+          </li>
+
+          <li style={{position: 'relative', padding: '0.6rem 0 0.6rem 1rem'}}>
+            <span style={{position: 'absolute', left: -10, top: '0.9rem', width: 12, height: 12, background: 'var(--text)', borderRadius: '50%'}} aria-hidden="true" />
+            <div style={{fontWeight: 700}}>2016 — 2022</div>
+            <div><strong>Soporte técnico</strong> — técnico de campo y atención al cliente</div>
+            <div className="muted">Resolución de incidencias, mantenimiento y soporte de infraestructuras.</div>
+          </li>
+        </ul>
+      </section>
+    </main>
   );
 };
 
