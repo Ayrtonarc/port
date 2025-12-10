@@ -1,15 +1,21 @@
 /* Navbar styles: fixed height and consistent alignment across pages */
+:root{
+  --nav-height: 64px;
+  --nav-height-mobile: 56px;
+}
+
 .site-nav{
-  height: 64px;
+  height: var(--nav-height);
   display: flex;
   align-items: center;
   background: var(--bg);
   width: 100%;
   box-sizing: border-box;
-  z-index: 1000;
-  position: fixed;
+  z-index: 10000; /* ensure it sits above most content */
+  position: fixed !important; /* enforce fixed position despite import order */
   top: 0;
   left: 0;
+  right: 0;
   border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 .nav-inner{ display:flex; align-items:center; justify-content:space-between; width:100%; }
@@ -19,13 +25,14 @@
 .site-nav__link:focus{ outline: 3px solid rgba(0,0,0,0.08); outline-offset:2px; }
 
 /* Ensure anchor scrolling accounts for nav height when using internal links */
-:target::before{ content: ""; display:block; height:64px; margin-top:-64px; }
+:target::before{ content: ""; display:block; height:var(--nav-height); margin-top:calc(var(--nav-height) * -1); }
 
 @media (max-width: 767px){
-  .site-nav{ height:56px; }
-  :target::before{ height:56px; margin-top:-56px; }
+  :root{ --nav-height: var(--nav-height-mobile); }
+  .site-nav{ height: var(--nav-height); }
+  :target::before{ height:var(--nav-height); margin-top:calc(var(--nav-height) * -1); }
 }
 
 /* Add page offset so content is not hidden under the fixed nav */
-body { padding-top: 64px; }
-@media (max-width: 767px){ body { padding-top: 56px; } }
+body { padding-top: var(--nav-height); }
+@media (max-width: 767px){ body { padding-top: var(--nav-height); } }
