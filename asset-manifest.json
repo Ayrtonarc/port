@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/port/static/css/main.99668189.css",
-    "main.js": "/port/static/js/main.f2914d9b.js",
+    "main.css": "/port/static/css/main.115d7a39.css",
+    "main.js": "/port/static/js/main.ca574c4a.js",
     "static/js/453.211be4f6.chunk.js": "/port/static/js/453.211be4f6.chunk.js",
-    "static/media/kristaps-ungurs-XD5oKCerKCQ-unsplash.jpg": "/port/static/media/kristaps-ungurs-XD5oKCerKCQ-unsplash.96aae1e902ab54ced133.jpg",
+    "static/media/concord.png": "/port/static/media/concord.180d1a6e2363bf338460.png",
     "static/media/foto.jpeg": "/port/static/media/foto.640be42c4b490f959987.jpeg",
     "index.html": "/port/index.html",
-    "main.99668189.css.map": "/port/static/css/main.99668189.css.map",
-    "main.f2914d9b.js.map": "/port/static/js/main.f2914d9b.js.map",
+    "main.115d7a39.css.map": "/port/static/css/main.115d7a39.css.map",
+    "main.ca574c4a.js.map": "/port/static/js/main.ca574c4a.js.map",
     "453.211be4f6.chunk.js.map": "/port/static/js/453.211be4f6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99668189.css",
-    "static/js/main.f2914d9b.js"
+    "static/css/main.115d7a39.css",
+    "static/js/main.ca574c4a.js"
   ]
 }
