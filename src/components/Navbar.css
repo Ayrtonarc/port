@@ -1,0 +1,31 @@
+/* Navbar styles: fixed height and consistent alignment across pages */
+.site-nav{
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; width:100%; }
+.site-nav__brand{ display:inline-block; height:40px; width:120px; background-size:contain; background-repeat:no-repeat; }
+.site-nav__links{ display:flex; gap:0.5rem; align-items:center; }
+.site-nav__link{ color:var(--text); text-decoration:none; padding:0.5rem 0.75rem; display:inline-flex; align-items:center; height:100%; }
+.site-nav__link:focus{ outline: 3px solid rgba(0,0,0,0.08); outline-offset:2px; }
+
+/* Ensure anchor scrolling accounts for nav height when using internal links */
+:target::before{ content: ""; display:block; height:64px; margin-top:-64px; }
+
+@media (max-width: 767px){
+  .site-nav{ height:56px; }
+  :target::before{ height:56px; margin-top:-56px; }
+}
+
+/* Add page offset so content is not hidden under the fixed nav */
+body { padding-top: 64px; }
+@media (max-width: 767px){ body { padding-top: 56px; } }

@@ -126,3 +126,32 @@
   .visual-center{ order:1; }
   .visual-bottom-cards{ grid-template-columns: 1fr; }
 }
+
+/* New Home-specific styles for hero and highlights */
+.visual-hero{ position: relative; color: var(--text); background-size: cover; background-position: center; background-repeat: no-repeat; /* full-bleed across viewport */ width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+.visual-hero::before{ content: ""; position:absolute; inset:0; /* overlay claro para texto oscuro */ background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5)); mix-blend-mode: normal; z-index:0; }
+.visual-inner{ position:relative; z-index:1; display:grid; grid-template-columns: 1fr 480px; align-items:center; gap:2rem; padding:4.5rem 1rem; min-height:420px; }
+.visual-center{ display:flex; align-items:center; justify-content:flex-start; }
+.visual-side{ padding:1rem; color: var(--text); }
+.hero-pill{ display:inline-block; background: rgba(0,0,0,0.04); color: var(--text); padding:0.35rem 0.6rem; border-radius:999px; font-size:0.78rem; }
+.hero-title{ font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.4rem); margin: 0.6rem 0 0.6rem; color: var(--text); }
+.hero-copy{ color: rgba(0,0,0,0.8); max-width:44ch; }
+.hero-ctas{ display:flex; gap:0.7rem; margin-top:1rem; }
+.btn-primary{ background:var(--text); color:var(--bg); padding:0.65rem 0.95rem; border-radius:8px; text-decoration:none; }
+.btn-ghost{ background:transparent; color:var(--text); border:1px solid rgba(0,0,0,0.08); padding:0.55rem 0.9rem; border-radius:8px; text-decoration:none; }
+
+.service-card { padding:1rem; background: var(--surface); border-radius:8px; border:1px solid rgba(0,0,0,0.04); color: var(--text); }
+.service-card h4, .service-card p { color: var(--text); }
+
+@media (max-width: 900px){ .visual-inner{ grid-template-columns: 1fr; padding:3rem 1rem; } .visual-side{ text-align:center; } .visual-center{ order:2; } }
+
+/* Responsive hero adjustments */
+@media (max-width: 767px) {
+  .visual-hero{ background-position: top center; /* keep subject visible on small screens */ }
+  .visual-hero::before{ background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.75)); }
+  .visual-inner{ padding: 2.25rem 0.75rem; min-height: 50vh; }
+}
+
+@media (min-width: 1200px) {
+  .visual-inner{ min-height: 80vh; padding: 6rem 2rem; }
+}

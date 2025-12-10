@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.css'; // Asegúrate de crear e importar este archivo CSS
+import ProjectCard from '../components/ProjectCard';
+import heroImg from '../assets/images/concord.png';
 
 const Home = () => {
   const skills = [
@@ -35,6 +37,28 @@ const Home = () => {
   return (
     <>
       <main>
+        {/* Hero */}
+        <header className="visual-hero" style={{backgroundImage: `url(${heroImg})`}}>
+          <div className="visual-inner">
+            <div className="visual-left-nav" aria-hidden="true">
+              {/* <button className="nav-toggle">☰</button> */}
+            </div>
+            <div className="visual-center">
+              <div className="hero-art" aria-hidden="true">
+                {/* decorative image already in background */}
+              </div>
+            </div>
+            <aside className="visual-side">
+              {/* <span className="hero-pill">PORTAFOLIO</span> */}
+              {/* <h1 className="hero-title">Ayrton — Ingeniería & Productos</h1> */}
+              <p className="hero-copy">Diseño y desarrollo de productos con foco en inteligencia artificial, visión computacional y sistemas de producción.</p>
+              <div className="hero-ctas">
+                <a className="btn btn-primary" href="#/contact">Contactar</a>
+                <a className="btn btn-ghost" href="#projects">Ver proyectos</a>
+              </div>
+            </aside>
+          </div>
+        </header>
         {/* Visual hero removed per request; simplified landing */}
         {/* Case-study removed per request */}
 
@@ -60,6 +84,33 @@ const Home = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section id="highlights" className="section container">
+          <h2 className="section-title">Enfoque</h2>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="service-card">
+                <i className="bi bi-cpu" aria-hidden="true" style={{fontSize:'1.6rem'}}></i>
+                <h4 style={{marginTop:'.5rem'}}>Machine Learning</h4>
+                <p className="about-card-text">Modelado, visión por computadora y despliegues en producción.</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="service-card">
+                <i className="bi bi-server" aria-hidden="true" style={{fontSize:'1.6rem'}}></i>
+                <h4 style={{marginTop:'.5rem'}}>Back-end</h4>
+                <p className="about-card-text">APIs, bases de datos y arquitecturas escalables.</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="service-card">
+                <i className="bi bi-gear" aria-hidden="true" style={{fontSize:'1.6rem'}}></i>
+                <h4 style={{marginTop:'.5rem'}}>Consultoría</h4>
+                <p className="about-card-text">Estrategia técnica, optimización y mentoring.</p>
+              </div>
+            </div>
           </div>
         </section>
 
