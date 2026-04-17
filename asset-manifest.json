@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/port/static/css/main.115d7a39.css",
-    "main.js": "/port/static/js/main.ca574c4a.js",
+    "main.css": "/port/static/css/main.421024e7.css",
+    "main.js": "/port/static/js/main.dc4f1d94.js",
     "static/js/453.211be4f6.chunk.js": "/port/static/js/453.211be4f6.chunk.js",
     "static/media/concord.png": "/port/static/media/concord.180d1a6e2363bf338460.png",
     "static/media/foto.jpeg": "/port/static/media/foto.640be42c4b490f959987.jpeg",
     "index.html": "/port/index.html",
-    "main.115d7a39.css.map": "/port/static/css/main.115d7a39.css.map",
-    "main.ca574c4a.js.map": "/port/static/js/main.ca574c4a.js.map",
+    "main.421024e7.css.map": "/port/static/css/main.421024e7.css.map",
+    "main.dc4f1d94.js.map": "/port/static/js/main.dc4f1d94.js.map",
     "453.211be4f6.chunk.js.map": "/port/static/js/453.211be4f6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.115d7a39.css",
-    "static/js/main.ca574c4a.js"
+    "static/css/main.421024e7.css",
+    "static/js/main.dc4f1d94.js"
   ]
 }
