@@ -3,37 +3,59 @@ import React from 'react';
 
 const services = [
   {
-    title: 'Contenido para Redes Sociales (IA)',
-    description: 'Generación de imágenes, textos y videos para redes sociales utilizando inteligencia artificial. Ideal para marketing digital y presencia online.',
-    icon: 'bi-instagram',
+    title: 'Desarrollo técnico para productos basados en IA',
+    description: 'Aterrizo ideas con machine learning o visión computacional en soluciones que puedan desplegarse y mantenerse sin fricción.',
+    deliverables: [
+      'Diseño técnico inicial y validación de alcance',
+      'Prototipos funcionales y pruebas de concepto',
+      'Integración con backend o flujos existentes',
+    ],
   },
   {
     title: 'Mantenimiento de equipos de cómputo',
-    description: 'Diagnóstico y reparación de hardware, limpieza y mantenimiento preventivo, reemplazo de componentes (HDD/SSD, RAM, fuentes), instalación y actualización de sistemas operativos y drivers, optimización de rendimiento, respaldo y recuperación de datos, y soporte remoto o presencial según necesidad.',
-    icon: 'bi-wrench',
+    description: 'Diagnóstico, reparación, actualización y soporte para equipos con enfoque preventivo y continuidad operativa.',
+    deliverables: [
+      'Mantenimiento preventivo y correctivo',
+      'Optimización de rendimiento y respaldos',
+      'Soporte remoto o presencial según necesidad',
+    ],
+  },
+  {
+    title: 'Backend y APIs para productos en crecimiento',
+    description: 'Diseño servicios, bases de datos y APIs pensados para que el producto evolucione sin perder orden.',
+    deliverables: [
+      'Arquitectura backend y endpoints',
+      'Persistencia de datos y modelado inicial',
+      'Monitoreo básico y mejora continua',
+    ],
   },
 ];
 
 const Services = () => (
-  <div className="container mt-4">
-    <h1 className="mb-4 text-center">Servicios</h1>
-    <p className="lead text-center mb-5">
-      Ofrezco servicios profesionales en desarrollo web, inteligencia artificial y consultoría tecnológica. ¡Contáctame para llevar tu proyecto al siguiente nivel!
-    </p>
-    <div className="row">
-      {services.map((service, idx) => (
-        <div className="col-md-6 mb-4" key={idx}>
-          <div className="about-card h-100">
-              <div className="about-card-body text-center">
-              <i className={`bi ${service.icon} mb-3`} style={{ fontSize: '2.5rem' }}></i>
-              <h3 className="about-card-title">{service.title}</h3>
-              <p className="about-card-text">{service.description}</p>
-            </div>
-          </div>
-        </div>
+  <main className="page-shell">
+    <header className="page-header">
+      <span className="eyebrow">Servicios</span>
+      <h1 className="page-title">Soporte técnico y desarrollo con una lógica simple: resolver bien antes que prometer de más.</h1>
+      <p className="page-lead">
+        Trabajo con equipos, productos o ideas que necesitan criterio de ingeniería, orden en la ejecución y una experiencia final más pulida.
+      </p>
+    </header>
+
+    <section className="services-grid-ui">
+      {services.map((service) => (
+        <article key={service.title} className="service-panel panel panel--pad">
+          <p className="panel-kicker">Servicio</p>
+          <h2 className="service-panel__title">{service.title}</h2>
+          <p className="service-panel__description">{service.description}</p>
+          <ul className="bullet-list service-panel__list">
+            {service.deliverables.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
       ))}
-    </div>
-  </div>
+    </section>
+  </main>
 );
 
 export default Services;

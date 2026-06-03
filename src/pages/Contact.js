@@ -4,73 +4,79 @@ const Contact = () => {
   const contactMethods = [
     {
       id: 1,
-      title: 'Correo Electrónico',
-      description: 'Envíame un correo para consultas o colaboraciones.',
-      link: 'mailto:correo@ejemplo.com',
+      title: 'Correo electrónico',
+      description: 'Para colaboraciones, propuestas de producto o consultas técnicas concretas.',
+      link: 'mailto:ayrtonarc@gmail.com',
       linkText: 'ayrtonarc@gmail.com',
-      icon: 'bi-envelope', // Ícono de correo
+      label: 'Directo',
     },
     {
       id: 2,
       title: 'GitHub',
-      description: 'Explora mis proyectos y contribuciones.',
+      description: 'Código, experimentos y avances públicos.',
       link: 'https://github.com/ayrtonarc',
       linkText: 'GitHub',
-      icon: 'bi-github', // Ícono de GitHub
+      label: 'Repositorios',
     },
     {
       id: 3,
       title: 'LinkedIn',
-      description: 'Conéctate conmigo en LinkedIn.',
+      description: 'Perfil profesional y contacto de networking.',
       link: 'https://www.linkedin.com/in/ayrton-santosa',
       linkText: 'LinkedIn',
-      icon: 'bi-linkedin', // Ícono de LinkedIn
+      label: 'Networking',
     },
-    // {
-    //   id: 4,
-    //   title: 'Instagram',
-    //   description: 'Sígueme en Instagram para contenido personal y profesional.',
-    //   link: 'https://www.instagram.com/ayrton.super/',
-    //   linkText: 'Instagram',
-    //   icon: 'bi-instagram', // Ícono de Instagram
-    // },
     {
       id: 5,
       title: 'Medium',
-      description: 'Lee mis artículos sobre tecnología y desarrollo.',
+      description: 'Artículos y notas sobre tecnología, producto y desarrollo.',
       link: 'https://medium.com/@ayrtonsantosc',
       linkText: 'Medium',
-      icon: 'bi-journal-text', // Ícono de Medium
+      label: 'Escritura',
     },
   ];
 
   return (
-    <div className="container mt-4">
-      <h1 className="mb-4 text-center">Contacto</h1>
-      <div className="row">
-        {contactMethods.map((method) => (
-          <div key={method.id} className="col-md-6 mb-4">
-            <div className="contact-card">
-              <div className="contact-card-body">
-                <h5 className="contact-card-title">
-                  <i className={`bi ${method.icon} me-2`}></i> {/* Ícono */}
-                  {method.title}
-                </h5>
-                <p className="contact-card-text">{method.description}</p>
-                <a
-                  href={method.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn"
-                >
-                  {method.linkText}
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <main className="page-shell">
+      <header className="page-header">
+        <span className="eyebrow">Contacto</span>
+        <h1 className="page-title">Si el proyecto requiere criterio técnico y ejecución limpia, conversemos.</h1>
+        <p className="page-lead">
+          Estoy disponible para colaboraciones en IA aplicada, backend, optimización de productos y acompañamiento técnico.
+        </p>
+      </header>
+
+      <section className="contact-layout">
+        <div className="contact-grid">
+          {contactMethods.map((method) => (
+            <article key={method.id} className="contact-method panel panel--pad">
+              <p className="contact-method__label">{method.label}</p>
+              <h2 className="contact-method__title">{method.title}</h2>
+              <p className="contact-method__text">{method.description}</p>
+              <a
+                href={method.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+              >
+                {method.linkText}
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <aside className="panel panel--pad contact-aside">
+          <p className="panel-kicker">Forma de colaboración</p>
+          <ul className="bullet-list">
+            <li>Diagnóstico técnico inicial y definición de alcance.</li>
+            <li>Propuestas orientadas a valor, no a complejidad gratuita.</li>
+            <li>Comunicación clara sobre tiempos, riesgos y siguientes pasos.</li>
+          </ul>
+
+          <a className="btn btn-primary" href="mailto:ayrtonarc@gmail.com">Enviar correo</a>
+        </aside>
+      </section>
+    </main>
   );
 };
 

@@ -1,7 +1,7 @@
 // src/components/ProjectCard.js
 import React from 'react';
 
-const ProjectCard = ({ title, description, url, icon }) => {
+const ProjectCard = ({ title, description, url, icon, category, stack, result }) => {
   const renderIcon = (type) => {
     switch (type) {
       case 'vision':
@@ -40,12 +40,24 @@ const ProjectCard = ({ title, description, url, icon }) => {
   };
 
   return (
-    <div className="project-card" style={{padding: '1rem', borderRadius: 8, background: 'var(--card)', minHeight: 160}}>
-      <div style={{display: 'flex', alignItems: 'center', gap: '.6rem', marginBottom: '.5rem'}}>
-        {renderIcon(icon)}
-        <h5 style={{margin: 0}}>{title}</h5>
+      <article className="project-card panel panel--pad">
+        <div className="project-card__head">
+          <div className="project-card__icon" aria-hidden="true">
+            {renderIcon(icon)}
+          </div>
+          {category && <p className="project-card__eyebrow">{category}</p>}
       </div>
-      <p style={{marginBottom: '.75rem', color: 'var(--muted)'}}>{description}</p>
+
+        <h3 className="project-card__title">{title}</h3>
+        <p className="project-card__text">{description}</p>
+
+        {(stack || result) && (
+          <div className="project-card__details">
+            {stack && <p><strong>Stack:</strong> {stack}</p>}
+            {result && <p><strong>Valor:</strong> {result}</p>}
+          </div>
+        )}
+
       {url ? (
         <a
           href={url}
@@ -53,12 +65,12 @@ const ProjectCard = ({ title, description, url, icon }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Ver proyecto
+          Abrir proyecto
         </a>
       ) : (
         <span className="muted" aria-hidden="true">Próximamente</span>
       )}
-    </div>
+    </article>
   );
 };
 

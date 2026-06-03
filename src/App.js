@@ -9,27 +9,27 @@ import Contact from './pages/Contact';
 import Donate from './pages/Donate';
 import Services from './pages/Services';
 import './styles/App.css';
+import './styles/UI.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
+    <Router>
+      <div className="app-shell">
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/donate" element={<Donate />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="*" element={<Navigate to="/" />} /> {/* Redirige rutas no encontradas */}
-          </Routes>
+          <div className="app-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/donate" element={<Donate />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </div>
           <Footer />
-        </Router>
-        {}
-      </header>
-    </div>
+      </div>
+    </Router>
   );
 }
 
