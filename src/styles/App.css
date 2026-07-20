@@ -1,335 +1,37 @@
-/* Global Styles */
-/* Design tokens + floating text effect */
-:root {
-  /* Apple-inspired minimal tokens */
-  /* site background: subtle vertical gradient inspired by the image */
-  --bg: linear-gradient(180deg, #efeded 0%, #f7f7f7 100%);
-  --surface: #ffffff; /* surfaces (cards) remain white */
-  --card: #ffffff;
-  --text: #000000; /* pure black text */
-  --muted: rgba(0,0,0,0.55); /* use black opacity for muted */
-  --glass: rgba(255,255,255,0.6);
-  --radius: 8px;
-  --container-max: 1100px;
-}
+/* ── App-level tweaks ───────────────────────────── */
+/* Design tokens are in minimal.css — this file only adds subtle animations */
 
-/* Efecto digital estilo 8 bits */
 html, body {
   height: 100%;
   overflow-y: auto;
 }
 
-body {
-  position: relative;
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Floating text animation applied to all textual elements as requested */
+/* Subtle floating animation for section titles */
 @keyframes floatY {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
   100% { transform: translateY(0); }
 }
 
-/* Apply floating animation only to major headings to keep motion subtle and consistent */
-h1, h2, h3, h4, h5, h6, .hero-title, .section-title { animation: floatY 6.5s ease-in-out infinite; }
+.section-title {
+  animation: floatY 8s ease-in-out infinite;
+}
 
-/* Inline elements should allow transform without breaking flow */
-a, button, .btn, span, strong, em { display: inline-block; }
+/* Page transition */
+.app-content > * {
+  animation: fadeSlideIn 0.35s ease-out;
+}
 
-/* Respect user preference for reduced motion */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  h1,h2,h3,h4,h5,h6, .hero-title, .section-title { animation: none !important; transition: none !important; }
-}
-
-/* Button utilities (minimal) */
-.btn {
-  display: inline-block;
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px; /* pill */
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.12s ease, color 0.12s ease, transform 0.06s ease;
-  border: 1px solid rgba(0,0,0,0.06);
-  background: transparent;
-  color: var(--text);
-}
-
-.btn-primary {
-  background: #000000; /* black button */
-  color: #ffffff; /* white text */
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: none;
-}
-
-.btn-primary:hover{ opacity: 0.98; transform: translateY(0); }
-
-.btn-ghost {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-/* Site navigation (minimal) */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 60;
-  background: transparent;
-  border-bottom: 1px solid rgba(16,24,40,0.03);
-}
-.site-nav .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:0.6rem 0; }
-.site-nav__brand{ color: var(--text); font-weight:600; font-size:1rem; text-decoration:none; }
-.site-nav__links{ display:flex; gap:0.75rem; align-items:center; }
-.site-nav__link{ color: var(--muted); text-decoration:none; padding:0.35rem 0.6rem; border-radius:6px; transition: color .12s ease, background .12s ease; }
-.site-nav__link:hover{ color: var(--text); background: rgba(0,0,0,0.02); }
-
-/* Site footer (minimal) */
-.site-footer{ background: transparent; padding:2rem 0; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.03); }
-.site-footer__text{ margin:0; font-weight:500; color: var(--muted); }
-.site-footer__meta{ margin:0; color: rgba(0,0,0,0.45); font-size:0.9rem; }
-
-/* Card base (minimal, flat) */
-.card, .project-card, .about-card, .contact-card, .skill-card {
-  background: var(--card);
-  color: var(--text);
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  box-shadow: none;
-}
-
-/* Utility: muted text */
-.muted { color: var(--muted); }
-
-
-/* Logo con animación */
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin 20s linear infinite;
+  .section-title,
+  .app-content > * {
+    animation: none !important;
+    transition: none !important;
   }
-}
-
-/* Encabezado y enlaces */
-.App-header {
-  background: transparent;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text);
-}
-.App-link { color: var(--text); }
-
-/* Navbar */
-nav {
-  background: transparent;
-  color: var(--text);
-  padding: 0.5rem 1rem;
-  width: 100%;
-  box-shadow: none;
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 1.5rem;
-}
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.12s ease;
-}
-nav a:hover { color: var(--text); }
-
-/* Main Content */
-main { flex: 1; padding: 2rem; }
-
-/* Footer */
-footer {
-  background: transparent;
-  color: var(--muted);
-  text-align: center;
-  width: 100%;
-  padding: 1.25rem 0;
-  border-top: 1px solid rgba(0,0,0,0.03);
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-footer a:hover { color: var(--text); }
-
-/* Tarjetas de Proyecto (minimal) */
-.project-card {
-  background: var(--card);
-  border: 1px solid rgba(16,24,40,0.04);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  margin: 1rem 0;
-  color: var(--text);
-  transition: background 0.12s ease, border-color 0.12s ease;
-}
-
-.project-card:hover {
-  background: var(--surface);
-}
-
-.project-card h5 {
-  color: var(--text);
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-card p {
-  color: rgba(16,24,40,0.7);
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.project-card a {
-  display:inline-block;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  border: none;
-  background: #000000;
-  color: #fff;
-}
-
-/* Tarjetas de About (minimal) */
-.about-card {
-  background: var(--card);
-  border: 1px solid rgba(16,24,40,0.04);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  margin: 1rem 0;
-  color: var(--text);
-}
-
-.about-card-title {
-  color: var(--text);
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-}
-
-.about-card-text {
-  color: rgba(16,24,40,0.75);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Habilidades Blandas */
-.about-card ul {
-  color: var(--muted); /* Texto muted */
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.about-card ul li {
-  margin-bottom: 0.5rem; /* Espaciado entre elementos de la lista */
-  font-size: 1rem; /* Asegura que el tamaño de letra sea consistente */
-}
-
-/* Tarjetas de Contacto (minimal) */
-.contact-card {
-  background: var(--card);
-  border: 1px solid rgba(16,24,40,0.04);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  color: var(--text);
-}
-
-.contact-card-title {
-  color: var(--text);
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
-}
-
-.contact-card-text {
-  color: rgba(16,24,40,0.75);
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.contact-card a.btn{
-  display:inline-block;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: #000000;
-  color: #fff;
-  text-decoration:none;
-}
-
-/* Tarjetas de Habilidades (minimal) */
-.skill-card {
-  background: var(--card);
-  border: 1px solid rgba(16,24,40,0.04);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  color: var(--text);
-}
-
-.skill-card-title {
-  color: var(--text);
-  font-size: 1.125rem;
-  margin-bottom: 0.75rem;
-}
-
-.skill-card ul {
-  color: rgba(16,24,40,0.75);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.skill-card ul li { margin-bottom: 0.5rem; }
-
-/* Animación del Logo */
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.dark-filter {
-  filter: brightness(0.7) contrast(1) saturate(0.6); /* Colores más tenues */
-  transition: filter 0.3s ease-in-out;
-}
-
-.dark-filter:hover {
-  filter: brightness(0.8) contrast(1.1) saturate(0.8); /* Suaviza el efecto al pasar el cursor */
-}
-  
-.qr-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.qr-container canvas {
-  border: 2px solid #333;
-  border-radius: 8px;
-  padding: 10px;
 }
 

@@ -1,0 +1,345 @@
+/* ── Project Card ────────────────────────────────── */
+.project-card{
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #22d3ee);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.project-card:hover::after{
+  opacity: 1;
+}
+
+.project-card__head{
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.project-card__icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.project-card__eyebrow{
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.project-card__title{
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.project-card__text{
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.65;
+  font-size: 0.93rem;
+}
+
+.project-card__details{
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--line-light);
+}
+
+.project-card__details p{
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.project-card__details strong{
+  color: var(--text);
+  font-weight: 600;
+}
+
+.project-card .btn{
+  margin-top: 0.25rem;
+  width: 100%;
+}
+
+/* ── Metric cards ────────────────────────────────── */
+.metric-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-card{
+  display: grid;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.metric-card strong{
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.metric-card span{
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.metric-grid--compact{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metric-grid--compact .metric-card{
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.metric-grid--compact .metric-card strong{
+  font-size: 1.15rem;
+}
+
+.metric-grid--compact .metric-card span{
+  font-size: 0.78rem;
+}
+
+/* ── Content split layout ───────────────────────── */
+.content-split{
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.content-split--about{
+  grid-template-columns: 320px minmax(0, 1fr);
+  align-items: start;
+}
+
+/* ── Profile card ────────────────────────────────── */
+.profile-card{
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.profile-card__image{
+  width: 100%;
+  border-radius: var(--radius);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* ── Content block ───────────────────────────────── */
+.content-block{
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+
+.content-block:last-child{
+  margin-bottom: 0;
+}
+
+/* ── Detail grid ─────────────────────────────────── */
+.detail-grid{
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* ── Timeline ────────────────────────────────────── */
+.timeline-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-item{
+  display: grid;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.timeline-item__period{
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.timeline-item__title{
+  font-weight: 700;
+  font-size: 1.08rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.timeline-item__detail{
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.timeline-item__description{
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ── Services grid ───────────────────────────────── */
+.services-grid-ui{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.service-panel{
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+}
+
+.service-panel__title{
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.service-panel__description{
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.65;
+  font-size: 0.93rem;
+}
+
+.service-panel__list{
+  margin-top: 0.25rem;
+}
+
+/* ── Contact layout ──────────────────────────────── */
+.contact-layout{
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.contact-method{
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+}
+
+.contact-method__label{
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.contact-method__title{
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+.contact-method__text{
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.contact-method .btn{
+  margin-top: 0.4rem;
+}
+
+.contact-aside{
+  display: grid;
+  gap: 1rem;
+}
+
+/* ── Publications ────────────────────────────────── */
+.publication-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.publication-list li{
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-size: 0.93rem;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 800px){
+  .content-split--about{
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid-ui{
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px){
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .metric-grid--compact{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

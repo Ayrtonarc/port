@@ -68,6 +68,23 @@ const Projects = () => {
           ))}
         </div>
       </section>
+
+      <section className="section-block">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">Publicaciones</span>
+            <h2 className="section-title">Publicaciones seleccionadas</h2>
+          </div>
+        </div>
+
+        <div className="panel panel--pad">
+          <ol className="publication-list">
+            <li>
+              Santos, A., Gonzalez, C. I., &amp; Garcia, M. (2026). Multimodal Deep Learning Fusion Strategies for Alzheimer's Disease Classification. Computación y Sistemas, 30(1). DOI: 10.13053/cys-30-1-6316
+            </li>
+          </ol>
+        </div>
+      </section>
     </main>
   );
 };

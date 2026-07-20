@@ -21,6 +21,18 @@ const About = () => {
 
   const timeline = [
     {
+      period: '2026 — Presente',
+      title: 'Doctorado en Ciencias de la Computación',
+      detail: 'Investigación doctoral',
+      description: 'Investigación avanzada en ciencias de la computación con foco en inteligencia artificial y sistemas clínicos.',
+    },
+    {
+      period: '2026 — Presente',
+      title: 'IT Support Hospitalario',
+      detail: 'Soporte técnico y colaboración internacional',
+      description: 'Soporte IT a un hospital con herramientas de diagnóstico y gestión. Colaboración con un equipo internacional para el cálculo de métricas clínicas y operativas.',
+    },
+    {
       period: '2023 — 2025',
       title: 'Posgrado',
       detail: 'Investigación en detección de Alzheimer',
@@ -52,7 +64,7 @@ const About = () => {
 
       <section className="content-split content-split--about">
         <aside className="panel panel--pad profile-card">
-          <img src={myPhoto} alt="Retrato de Ayrton Santos" className="profile-card__image" />
+          <img src={myPhoto} alt="Retrato de Ayrton Santos" className="profile-card__image" loading="lazy" />
 
           <div className="metric-grid metric-grid--compact">
             <div className="metric-card">
@@ -95,15 +107,6 @@ const About = () => {
       <section className="section-block">
         <div className="detail-grid">
           <article className="panel panel--pad">
-            <p className="panel-kicker">Habilidades técnicas</p>
-            <div className="tag-list">
-              {technical.map((item) => (
-                <span key={item} className="tag">{item}</span>
-              ))}
-            </div>
-          </article>
-
-          <article className="panel panel--pad">
             <p className="panel-kicker">Forma de trabajo</p>
             <ul className="bullet-list">
               {principles.map((item) => (
@@ -134,22 +137,6 @@ const About = () => {
         </ol>
       </section>
 
-      <section className="section-block">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">Publicaciones</span>
-            <h2 className="section-title">Publicaciones seleccionadas</h2>
-          </div>
-        </div>
-
-        <div className="panel panel--pad">
-          <ol className="publication-list">
-            <li>
-              Santos, A., Gonzalez, C. I., & Garcia, M. (2026). Multimodal Deep Learning Fusion Strategies for Alzheimer's Disease Classification. Computación y Sistemas, 30(1). DOI: 10.13053/cys-30-1-6316
-            </li>
-          </ol>
-        </div>
-      </section>
     </main>
   );
 };

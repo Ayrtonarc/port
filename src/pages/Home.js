@@ -114,7 +114,7 @@ const Home = () => {
 
           <div className="home-hero__visual panel">
             <div className="home-hero__image-wrap">
-              <img src={heroImg} alt="Proyecto visual de portada" className="home-hero__image" />
+              <img src={heroImg} alt="Proyecto visual de portada" className="home-hero__image" loading="lazy" />
             </div>
             <div className="home-hero__note">
               <span className="home-hero__note-label">Ahora mismo</span>
