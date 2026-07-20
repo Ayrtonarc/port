@@ -1,95 +1,81 @@
 // src/pages/About.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Reveal from '../components/Reveal';
 import myPhoto from '../assets/images/foto.jpeg';
 
 const About = () => {
-  const technical = [
-    'Python y PyTorch',
-    'Node.js, Express y GraphQL',
-    'PostgreSQL y Sequelize',
-    'Docker y Linux',
-    'Pipelines de validación y despliegue',
-  ];
+  const { t } = useTranslation();
 
-  const principles = [
-    'Pensamiento estructurado y resolución de problemas.',
-    'Comunicación clara entre negocio, diseño y desarrollo.',
-    'Interés por la trazabilidad y la mantenibilidad del código.',
-    'Capacidad para moverme entre soporte, producto y backend.',
-  ];
+  const technical = t('about.tech_tags', { returnObjects: true });
+  const principles = t('about.principles', { returnObjects: true });
 
   const timeline = [
     {
-      period: '2026 — Presente',
-      title: 'Doctorado en Ciencias de la Computación',
-      detail: 'Investigación doctoral',
-      description: 'Investigación avanzada en ciencias de la computación con foco en inteligencia artificial y sistemas clínicos.',
+      period: t('about.timeline_1_period'),
+      title: t('about.timeline_1_title'),
+      detail: t('about.timeline_1_detail'),
+      description: t('about.timeline_1_desc'),
     },
     {
-      period: '2026 — Presente',
-      title: 'IT Support Hospitalario',
-      detail: 'Soporte técnico y colaboración internacional',
-      description: 'Soporte IT a un hospital con herramientas de diagnóstico y gestión. Colaboración con un equipo internacional para el cálculo de métricas clínicas y operativas.',
+      period: t('about.timeline_2_period'),
+      title: t('about.timeline_2_title'),
+      detail: t('about.timeline_2_detail'),
+      description: t('about.timeline_2_desc'),
     },
     {
-      period: '2023 — 2025',
-      title: 'Posgrado',
-      detail: 'Investigación en detección de Alzheimer',
-      description: 'Desarrollo de redes neuronales y pipelines de validación para proyectos clínicos.',
+      period: t('about.timeline_3_period'),
+      title: t('about.timeline_3_title'),
+      detail: t('about.timeline_3_detail'),
+      description: t('about.timeline_3_desc'),
     },
     {
-      period: '2022',
-      title: 'Plaeto',
-      detail: 'Desarrollador back-end',
-      description: 'Optimización de sistemas, despliegues y monitorización.',
+      period: t('about.timeline_4_period'),
+      title: t('about.timeline_4_title'),
+      detail: t('about.timeline_4_detail'),
+      description: t('about.timeline_4_desc'),
     },
     {
-      period: '2016 — 2022',
-      title: 'Soporte técnico',
-      detail: 'Técnico de campo y atención al cliente',
-      description: 'Resolución de incidencias, mantenimiento y soporte de infraestructuras.',
+      period: t('about.timeline_5_period'),
+      title: t('about.timeline_5_title'),
+      detail: t('about.timeline_5_detail'),
+      description: t('about.timeline_5_desc'),
     },
   ];
 
   return (
     <main className="page-shell">
       <header className="page-header">
-        <span className="eyebrow">Perfil</span>
-        <h1 className="page-title">Ingeniería orientada a producto, investigación aplicada y ejecución sobria.</h1>
-        <p className="page-lead">
-          Mi perfil combina inteligencia artificial, backend y experiencia operativa. Me interesa construir sistemas que se puedan usar, mantener y escalar sin ruido innecesario.
-        </p>
+        <span className="eyebrow">{t('about.eyebrow')}</span>
+        <h1 className="page-title">{t('about.title')}</h1>
+        <p className="page-lead">{t('about.lead')}</p>
       </header>
 
-      <section className="content-split content-split--about">
+      <Reveal as="section" className="content-split content-split--about">
         <aside className="panel panel--pad profile-card">
           <img src={myPhoto} alt="Retrato de Ayrton Santos" className="profile-card__image" loading="lazy" />
 
           <div className="metric-grid metric-grid--compact">
             <div className="metric-card">
-              <strong>+3</strong>
-              <span>años mezclando IA, backend y soporte</span>
+              <strong>{t('about.metric_1_value')}</strong>
+              <span>{t('about.metric_1_label')}</span>
             </div>
             <div className="metric-card">
-              <strong>10+</strong>
-              <span>proyectos académicos y aplicados</span>
+              <strong>{t('about.metric_2_value')}</strong>
+              <span>{t('about.metric_2_label')}</span>
             </div>
             <div className="metric-card">
-              <strong>End-to-end</strong>
-              <span>de la idea al despliegue</span>
+              <strong>{t('about.metric_3_value')}</strong>
+              <span>{t('about.metric_3_label')}</span>
             </div>
           </div>
         </aside>
 
         <section className="panel panel--pad">
-          <p className="panel-kicker">Resumen</p>
-          <p className="content-block">
-            Soy ingeniero en TICs con foco en inteligencia artificial y sistemas web. Diseño modelos y servicios preparados para producción con atención por la calidad, la legibilidad y la trazabilidad.
-          </p>
-          <p className="content-block">
-            Vengo de una mezcla útil: investigación aplicada, desarrollo backend y años de soporte técnico. Eso me permite aterrizar soluciones que no sólo funcionan en demo, sino también en operación real.
-          </p>
+          <p className="panel-kicker">{t('about.resume_kicker')}</p>
+          <p className="content-block">{t('about.resume_1')}</p>
+          <p className="content-block">{t('about.resume_2')}</p>
 
           <div className="tag-list">
             {technical.map((item) => (
@@ -98,16 +84,16 @@ const About = () => {
           </div>
 
           <div className="inline-actions">
-            <Link className="btn btn-primary" to="/contact">Contactar</Link>
-            <Link className="btn btn-secondary" to="/projects">Ver proyectos</Link>
+            <Link className="btn btn-primary" to="/contact">{t('about.contact_btn')}</Link>
+            <Link className="btn btn-secondary" to="/projects">{t('about.projects_btn')}</Link>
           </div>
         </section>
-      </section>
+      </Reveal>
 
-      <section className="section-block">
+      <Reveal as="section" className="section-block">
         <div className="detail-grid">
           <article className="panel panel--pad">
-            <p className="panel-kicker">Forma de trabajo</p>
+            <p className="panel-kicker">{t('about.principles_kicker')}</p>
             <ul className="bullet-list">
               {principles.map((item) => (
                 <li key={item}>{item}</li>
@@ -115,13 +101,13 @@ const About = () => {
             </ul>
           </article>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section-block">
+      <Reveal as="section" className="section-block">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">Experiencia</span>
-            <h2 className="section-title">Cronología reciente</h2>
+            <span className="eyebrow">{t('about.timeline_eyebrow')}</span>
+            <h2 className="section-title">{t('about.timeline_title')}</h2>
           </div>
         </div>
 
@@ -135,7 +121,7 @@ const About = () => {
             </li>
           ))}
         </ol>
-      </section>
+      </Reveal>
 
     </main>
   );

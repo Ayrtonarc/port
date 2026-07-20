@@ -1,61 +1,53 @@
 // src/pages/Services.js
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import Reveal from '../components/Reveal';
 
-const services = [
-  {
-    title: 'Desarrollo técnico para productos basados en IA',
-    description: 'Aterrizo ideas con machine learning o visión computacional en soluciones que puedan desplegarse y mantenerse sin fricción.',
-    deliverables: [
-      'Diseño técnico inicial y validación de alcance',
-      'Prototipos funcionales y pruebas de concepto',
-      'Integración con backend o flujos existentes',
-    ],
-  },
-  {
-    title: 'Mantenimiento de equipos de cómputo',
-    description: 'Diagnóstico, reparación, actualización y soporte para equipos con enfoque preventivo y continuidad operativa.',
-    deliverables: [
-      'Mantenimiento preventivo y correctivo',
-      'Optimización de rendimiento y respaldos',
-      'Soporte remoto o presencial según necesidad',
-    ],
-  },
-  {
-    title: 'Backend y APIs para productos en crecimiento',
-    description: 'Diseño servicios, bases de datos y APIs pensados para que el producto evolucione sin perder orden.',
-    deliverables: [
-      'Arquitectura backend y endpoints',
-      'Persistencia de datos y modelado inicial',
-      'Monitoreo básico y mejora continua',
-    ],
-  },
-];
+const Services = () => {
+  const { t } = useTranslation();
 
-const Services = () => (
-  <main className="page-shell">
-    <header className="page-header">
-      <span className="eyebrow">Servicios</span>
-      <h1 className="page-title">Soporte técnico y desarrollo con una lógica simple: resolver bien antes que prometer de más.</h1>
-      <p className="page-lead">
-        Trabajo con equipos, productos o ideas que necesitan criterio de ingeniería, orden en la ejecución y una experiencia final más pulida.
-      </p>
-    </header>
+  const services = [
+    {
+      title: t('services.service_1_title'),
+      description: t('services.service_1_desc'),
+      deliverables: t('services.service_1_items', { returnObjects: true }),
+    },
+    {
+      title: t('services.service_2_title'),
+      description: t('services.service_2_desc'),
+      deliverables: t('services.service_2_items', { returnObjects: true }),
+    },
+    {
+      title: t('services.service_3_title'),
+      description: t('services.service_3_desc'),
+      deliverables: t('services.service_3_items', { returnObjects: true }),
+    },
+  ];
 
-    <section className="services-grid-ui">
-      {services.map((service) => (
-        <article key={service.title} className="service-panel panel panel--pad">
-          <p className="panel-kicker">Servicio</p>
-          <h2 className="service-panel__title">{service.title}</h2>
-          <p className="service-panel__description">{service.description}</p>
-          <ul className="bullet-list service-panel__list">
-            {service.deliverables.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
-    </section>
-  </main>
-);
+  return (
+    <main className="page-shell">
+      <header className="page-header">
+        <span className="eyebrow">{t('services.eyebrow')}</span>
+        <h1 className="page-title">{t('services.title')}</h1>
+        <p className="page-lead">{t('services.lead')}</p>
+      </header>
+
+      <Reveal as="section" className="services-grid-ui">
+        {services.map((service) => (
+          <article key={service.title} className="service-panel panel panel--pad">
+            <p className="panel-kicker">{t('services.service_kicker')}</p>
+            <h2 className="service-panel__title">{service.title}</h2>
+            <p className="service-panel__description">{service.description}</p>
+            <ul className="bullet-list service-panel__list">
+              {service.deliverables.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </Reveal>
+    </main>
+  );
+};
 
 export default Services;

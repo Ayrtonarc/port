@@ -1,90 +1,100 @@
 // src/pages/Projects.js
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import ProjectCard from '../components/ProjectCard';
+import Reveal from '../components/Reveal';
 
 const Projects = () => {
+  const { t } = useTranslation();
+
   const projects = [
     {
       id: 1,
-      title: 'Clasificador de huevos de gallina quebrados',
-      description: 'Modelo de aprendizaje profundo para clasificar huevos dañados mediante visión por computadora.',
+      title: t('projects.project_1_title'),
+      description: t('projects.project_1_desc'),
       url: 'https://colab.research.google.com/drive/1Rf2tYcdXEOAkMZA-PZ8eL40jFOctSfhv?usp=sharing#scrollTo=K2q7uDw5tOTA',
       icon: 'vision',
       category: 'Computer Vision',
-      stack: 'PyTorch · CNN · Curación de datos',
-      result: 'Acelera inspección visual en escenarios controlados.',
+      stack: t('projects.project_1_stack'),
+      result: t('projects.project_1_result'),
     },
     {
       id: 2,
-      title: 'Detección de fraudes en tarjetas de crédito',
-      description: 'Sistema basado en machine learning para identificar transacciones fraudulentas en tiempo real.',
+      title: t('projects.project_2_title'),
+      description: t('projects.project_2_desc'),
       url: 'https://colab.research.google.com/drive/1oj1xRZqEOqW0yT6iwctvKR_n6SYrn8BG?usp=sharing',
       icon: 'fraud',
       category: 'Risk Analytics',
-      stack: 'Python · Clasificación supervisada · Métricas',
-      result: 'Priorización de eventos anómalos con mejor lectura de riesgo.',
+      stack: t('projects.project_2_stack'),
+      result: t('projects.project_2_result'),
     },
     {
       id: 3,
-      title: 'Detección de señales de tránsito',
-      description: 'Modelo de clasificación de señales de tránsito utilizando redes neuronales convolucionales.',
+      title: t('projects.project_3_title'),
+      description: t('projects.project_3_desc'),
       url: 'https://colab.research.google.com/drive/1z3fXWqwhhKVYUEGnFbrywEIokPxOucFl?usp=sharing',
       icon: 'traffic',
       category: 'Perception',
-      stack: 'CNN · Clasificación multicategoría · Validación',
-      result: 'Base sólida para sistemas de asistencia visual.',
+      stack: t('projects.project_3_stack'),
+      result: t('projects.project_3_result'),
+    },
+    {
+      id: 4,
+      title: t('projects.project_4_title'),
+      description: t('projects.project_4_desc'),
+      url: 'https://neeucom.com',
+      icon: 'social',
+      category: 'Full Stack',
+      stack: t('projects.project_4_stack'),
+      result: t('projects.project_4_result'),
     },
   ];
 
   return (
     <main className="page-shell">
       <header className="page-header">
-        <span className="eyebrow">Portafolio</span>
-        <h1 className="page-title">Proyectos donde la técnica se conecta con un caso de uso concreto.</h1>
-        <p className="page-lead">
-          Selección breve de trabajo en machine learning, visión por computadora y sistemas de apoyo a decisiones. Cada proyecto busca resolver un problema específico sin adornos innecesarios.
-        </p>
+        <span className="eyebrow">{t('projects.eyebrow')}</span>
+        <h1 className="page-title">{t('projects.title')}</h1>
+        <p className="page-lead">{t('projects.lead')}</p>
       </header>
 
-      <section className="metric-grid">
+      <Reveal as="section" className="metric-grid">
         <article className="metric-card panel panel--pad">
-          <strong>3</strong>
-          <span>casos visibles y documentados</span>
+          <strong>{t('projects.metric_1_value')}</strong>
+          <span>{t('projects.metric_1_label')}</span>
         </article>
         <article className="metric-card panel panel--pad">
-          <strong>IA aplicada</strong>
-          <span>clasificación, detección y scoring</span>
+          <strong>{t('projects.metric_2_value')}</strong>
+          <span>{t('projects.metric_2_label')}</span>
         </article>
         <article className="metric-card panel panel--pad">
-          <strong>Entregables claros</strong>
-          <span>código reproducible y foco en utilidad</span>
+          <strong>{t('projects.metric_3_value')}</strong>
+          <span>{t('projects.metric_3_label')}</span>
         </article>
-      </section>
+      </Reveal>
 
-      <section className="section-block">
+      <Reveal as="section" className="section-block">
         <div className="card-grid">
           {projects.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section-block">
+      <Reveal as="section" className="section-block">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">Publicaciones</span>
-            <h2 className="section-title">Publicaciones seleccionadas</h2>
+            <span className="eyebrow">{t('projects.publications_eyebrow')}</span>
+            <h2 className="section-title">{t('projects.publications_title')}</h2>
           </div>
         </div>
 
         <div className="panel panel--pad">
           <ol className="publication-list">
-            <li>
-              Santos, A., Gonzalez, C. I., &amp; Garcia, M. (2026). Multimodal Deep Learning Fusion Strategies for Alzheimer's Disease Classification. Computación y Sistemas, 30(1). DOI: 10.13053/cys-30-1-6316
-            </li>
+            <li>{t('projects.publication_1')}</li>
           </ol>
         </div>
-      </section>
+      </Reveal>
     </main>
   );
 };
